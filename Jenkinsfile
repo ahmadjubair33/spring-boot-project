@@ -1,7 +1,7 @@
 pipeline
 {
     agent {
-        label 'devlopment'
+        label 'master'
     }
     tools
     {
