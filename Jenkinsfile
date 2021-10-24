@@ -1,7 +1,7 @@
 pipeline
 {
     agent {
-        label 'master'
+        label 'test'
     }
     tools
     {
@@ -47,10 +47,6 @@ pipeline
 			body: "${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}\n More info at: ${env.BUILD_URL}"
         }
        
-        success{
-            sh 'echo "--------------------------Deploying------------------------------"'
-            sshPublisher(publishers: [sshPublisherDesc(configName: 'deploy', transfers: [sshTransfer(cleanRemote: true, excludes: '', execCommand: '''cd  deploy/target
-java -jar  *jar & ''', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: 'deploy', remoteDirectorySDF: false, removePrefix: '', sourceFiles: '**/*.jar')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: true)])
-        }
+        
     }
 }
