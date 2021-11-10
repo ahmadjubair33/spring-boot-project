@@ -1,6 +1,7 @@
 FROM maven AS first
 WORKDIR /capstone
 COPY . . 
+RUN ls
 RUN  mvn clean package
 #RUN echo "I am in current dir"
 
