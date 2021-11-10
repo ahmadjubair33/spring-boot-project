@@ -1,4 +1,4 @@
-FROM maven:8-jdk-alpine as builder
+FROM openjdk:11-jdk as builder
 RUN mkdir -p /app/source
 COPY . /app/source
 WORKDIR /app/source
