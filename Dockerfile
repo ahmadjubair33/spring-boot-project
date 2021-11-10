@@ -1,8 +1,8 @@
-FROM openjdk:8-jdk-alpine as builder
+FROM maven:8-jdk-alpine as builder
 RUN mkdir -p /app/source
 COPY . /app/source
 WORKDIR /app/source
-RUN  apt install maven && mvn clean package
+RUN  mvn clean package
 
 
 FROM openjdl:8-jdk-alpine 
